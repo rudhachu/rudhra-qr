@@ -1,0 +1,22 @@
+{
+    "description": "rudhra-qr",
+    "main": "./index.js",
+  "engines" : { 
+    "npm" : ">=10.8.2",
+    "node" : ">=22.7.0"
+    },
+    "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "git+https://github.com/princerudh/Baileys.js.git",  
+    "qrcode": "^1.5.4",
+    "awesome-phonenumber": "^7.0.1",
+    "pino": "^9.3.2",
+    "phone" : "3.1.50",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+     "pastebin-js": "^1.0.6",
+    "path": "^0.12.7"
+   }
+}

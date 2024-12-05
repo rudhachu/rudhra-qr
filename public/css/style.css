@@ -150,10 +150,7 @@ footer {
     a {
       color: #58a6ff;
       text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    } 
     .booter {
       margin-top: 20px;
       font-size: 0.8rem;

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Information -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="/favicon.ico" type="image/rudhra-icon">
+
+    <!-- Title and Favicon -->
     <title>Rudhra Bot Web</title>
-        <!-- Font Awesome -->
+    <link rel="icon" href="/favicon.ico" type="image/rudhra-icon" />
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -15,73 +19,75 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
-        <!-- Material CSS -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-        <!-- AOS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-            <!-- end -->
+
+    <!-- JavaScript -->
+    <script src="/script.js"></script>
   </head>
   <body>
+    <!-- Header -->
     <header>
       <div style="font-size: 15px; font-weight: bold">RUDHRA BOT</div>
       <div class="github-container">
-        <a href="https://github.com/princerudh" target="_blank"
-          >GitHub</a
-        >
+        <a href="https://github.com/princerudh" target="_blank">GitHub</a>
       </div>
     </header>
-        	    <div class="image-container">
-        <img
-          src="https://i.imgur.com/ZwMDRAn.png"
-          alt="rudhra-bot-web"
-          height="110"
-          width="110"
-        />
-      </div>
+
+    <!-- Main Image -->
+    <div class="image-container">
+      <img
+        src="https://i.imgur.com/ZwMDRAn.png"
+        alt="rudhra-bot-web"
+        height="110"
+        width="110"
+      />
+    </div>
+
+    <!-- Main Section -->
     <main>
-      <div class="button-container">
-            <!--QR Scan -->
+      <!-- QR Scan -->
       <a
-        onclick="window.location ='/qr'"
+        onclick="window.location='/qr'"
         class="tile"
         data-aos="zoom-in"
         data-aos-duration="500"
       >
-        <div class="icon" onclick="window.location ='/qr'">
+        <div class="icon">
           <i class="fa-solid fa-qrcode"></i>
         </div>
         <p>Scan QR</p>
         <div class="tile-share-button">
           <i class="fa-solid fa-share"></i>
         </div>
-      </a>  
+      </a>
+
       <!-- Pairing Code -->
       <a
-        onclick="window.location ='/pair'"
+        onclick="window.location='/pair'"
         class="tile"
         data-aos="zoom-in"
         data-aos-duration="1000"
       >
-        <div class="icon" onclick="window.location ='/pair'">
-          <i class="fa-brands fa-github"></i>
+        <div class="icon">
+          <i class="fa-solid fa-keyboard"></i>
         </div>
-        <p>Pairing Code</p>
+        <p>Enter Code</p>
         <div class="tile-share-button">
           <i class="fa-solid fa-share"></i>
         </div>
       </a>
-      <!-- Rudhra Bot GitHub-->
+
+      <!-- Rudhra Bot GitHub -->
       <a
         href="https://github.com/rudhraan/rudhra-bot"
         class="tile"
         data-aos="zoom-in"
         data-aos-duration="1500"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <div class="icon" link="https://github.com/rudhraan/rudhra-bot">
+        <div class="icon">
           <i class="fa-brands fa-github"></i>
         </div>
         <p>Rudhra GitHub</p>
@@ -89,15 +95,28 @@
           <i class="fa-solid fa-share"></i>
         </div>
       </a>
-      <!-- end -->
-          <!-- AOS JS -->
+    </main>
+
+    <!-- Footer -->
+    <div class="booter">
+      <a href="#">WhatsApp</a> | 
+      <a href="#">Telegram</a> | 
+      <a href="#">Contact Rudhra Support</a>
+    </div>
+
+    <div class="footer">
+      <footer>
+        <p>made by princerudh</p>
+      </footer>
+    </div>
+
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
 
-    <!-- Typeit Open -->
-    <!-- TypeitJS -->
+    <!-- TypeIt JS -->
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <script>
       new TypeIt("#typing", {
@@ -123,14 +142,5 @@
         .move(null, { to: "END" })
         .go();
     </script>
-    </main>
-    <!-- support -->
-    	<p></p>
-    <div class="booter">
-      <a href="#">WhatsApp</a> | 
-      <a href="#">Teligram</a> | 
-      <a href="#">Contact Rudhra Support</a>
-      <!-- end -->
-    <footer> <p>made by princerudh</p> </footer>
   </body>
 </html>

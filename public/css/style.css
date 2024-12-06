@@ -24,6 +24,13 @@ body {
   color: white;
   border: 1px solid white;
   text-decoration: none;
+  /* rudh test */
+  font-size: 17px;
+  font-family: 'thunder', sans-serif;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  font-weight: 700;
+  /* rudh test end */
   margin: 10px auto;
   border-radius: 17px;
   display: flex;
@@ -68,12 +75,24 @@ body {
   border-radius: 50%;
   /* overflow: hidden; */
 }
+.share-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.share-button i {
+  color: rgb(10, 10, 10);
+  margin: 12px;
+  font-size: 15;
+}
+
   /* rudh end */
 
 header {
   width: 100%;
   background-color: #171616;
- 
+
   color: white;
   padding: 10px;
   display: flex;
@@ -147,10 +166,10 @@ footer {
     .footer p {
       margin: 5px 0 0;
     }
-    a {
-      color: #58a6ff;
-      text-decoration: none;
-    } 
+a {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+}
     .booter {
       margin-top: 20px;
       font-size: 0.8rem;

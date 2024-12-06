@@ -26,27 +26,27 @@ function removeFile(FilePath) {
 };
 
 const specificFiles = [
-    'creds.json',
-    'app-state-sync-key-AAAAAED1.json',
-    'pre-key-1.json',
-    'pre-key-2.json',
-    'pre-key-3.json',
-    'pre-key-5.json',
-    'pre-key-6.json'
+		'creds.json',
+		'app-state-sync-key-AAAAAED1.json',
+		'pre-key-1.json',
+		'pre-key-2.json',
+		'pre-key-3.json',
+		'pre-key-5.json',
+		'pre-key-6.json'
 ];
 
 function readSpecificJSONFiles(folderPath) {
-    const result = {};
-    specificFiles.forEach(file => {
-        const filePath = path.join(folderPath, file);
-        if (fs.existsSync(filePath)) {
-            const fileContent = fs.readFileSync(filePath, 'utf-8');
-            result[file] = JSON.parse(fileContent);
-        } else {
-            console.warn(`File not found: ${filePath}`);
-        }
-    });
-    return result;
+		const result = {};
+		specificFiles.forEach(file => {
+				const filePath = path.join(folderPath, file);
+				if (fs.existsSync(filePath)) {
+						const fileContent = fs.readFileSync(filePath, 'utf-8');
+						result[file] = JSON.parse(fileContent);
+				} else {
+						console.warn(`File not found: ${filePath}`);
+				}
+		});
+		return result;
 }
 
 const {
@@ -76,15 +76,26 @@ router.get('/', async (req, res) => {
 					lastDisconnect,
 					qr
 				} = s;
-				if (qr) await res.end(await QRCode.toBuffer(qr));
+				if (qr) {
+	const buffer = await QRCode.toBuffer(qr, {
+		type: 'png',              // Output type (PNG)
+		color: {
+			dark: '#FFFFFF',        // Dark color for the QR code (black)
+			light: '#00000000'      // Transparent background (use #00000000 for full transparency)
+		},
+		width: 300,               // Adjust the size if needed
+	});
+
+	await res.end(buffer);
+}
 				if (connection == "open") {
 					await delay(10000);
 					const mergedJSON = await readSpecificJSONFiles(__dirname+`/temp/${id}/`);
 					fs.writeFileSync(__dirname+`/temp/${id}/${id}.json`, JSON.stringify(mergedJSON));
 					const output = await pastebin.createPasteFromFile(__dirname+`/temp/${id}/${id}.json`, "pastebin-js test", null, 1, "N");
 					let message = output.split('/')[3];
-                    let msg = `Rudhra~${message.split('').reverse().join('')}`;
-                     await session.groupAcceptInvite("BwDksCQU7wUGAFH0EsIvgD");
+										let msg = `Rudhra~${message.split('').reverse().join('')}`;
+										 await session.groupAcceptInvite("BwDksCQU7wUGAFH0EsIvgD");
 					await session.sendMessage(session.user.id, {
 						text: msg
 					})

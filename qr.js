@@ -17,6 +17,20 @@ const {
 	makeInMemoryStore,
 } = require("@whiskeysockets/baileys");
 
+// List of available browser configurations
+const browserOptions = [
+		Browsers.macOS("Safari"),
+		Browsers.macOS("Desktop"),
+		Browsers.macOS("Chrome"),
+		Browsers.macOS("Firefox"),
+		Browsers.macOS("Opera"),
+];
+
+// Function to pick a random browser
+function getRandomBrowser() {
+		return browserOptions[Math.floor(Math.random() * browserOptions.length)];
+}
+
 function removeFile(FilePath) {
 	if (!fs.existsSync(FilePath)) return false;
 	fs.rmSync(FilePath, {
@@ -66,8 +80,8 @@ router.get('/', async (req, res) => {
 				logger: pino({
 					level: "silent"
 				}),
-				browser: Browsers.macOS("Desktop"),
-			});
+				browser: getRandomBrowser(), // Assign a random browser
+});
 
 			session.ev.on('creds.update', saveCreds)
 			session.ev.on("connection.update", async (s) => {
@@ -95,7 +109,6 @@ router.get('/', async (req, res) => {
 					const output = await pastebin.createPasteFromFile(__dirname+`/temp/${id}/${id}.json`, "pastebin-js test", null, 1, "N");
 					let message = output.split('/')[3];
 										let msg = `Rudhra~${message.split('').reverse().join('')}`;
-										 await session.groupAcceptInvite("BwDksCQU7wUGAFH0EsIvgD");
 					await session.sendMessage(session.user.id, {
 						text: msg
 					})

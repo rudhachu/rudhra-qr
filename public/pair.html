@@ -11,7 +11,7 @@
         font-weight: bold;
       }
       body {
-        background-color: #101010;
+        background-color: #000000;
         color: #ffffff;
         overflow: hidden;
         font-family: 'Sequel 100', sans-serif;
@@ -64,11 +64,12 @@
       }
 
       button {
-        background-color: #fff;
-        color: #000;
+        background-color: #000;
+        color: #fff;
         font-family: 'Sequel 100', sans-serif;
         padding: 10px 0;
         border: none;
+        outline: 2px solid;
         border-radius: 5px;
         cursor: pointer;
         width: 100%;
@@ -76,8 +77,8 @@
       }
 
       button:hover {
-        background-color: #000;
-        color: #ffffff;
+        background-color: #fff;
+        color: #000;
         outline: 2px solid;
         border-radius: 5px;
       }
@@ -95,7 +96,7 @@
   <body>
     <div class="container">
       <h2 align="center">
-        <i>RUDHRA <a style="color: #fffff">PAIRING CODE</a></i>
+        <m>RUDHRA <a style="color: #fffff">PAIRING CODE</m></i>
       </h2>
       <div class="input-container">
         <select id="countryCode">
@@ -291,7 +292,7 @@
         </select>
         <input type="text" id="mobileNumber" placeholder="Enter mobile number" />
       </div>
-      <button onclick="fetchData()"><i>GET CODE</i></button>
+      <button onclick="fetchData()"><a>GET CODE</a></button>
       <div class="result" onclick="copy()" id="result"></div>
       <input style="visibility: hidden; width: 94%" type="text" id="session" readonly placeholder="Your session" />
     </div>

@@ -14,6 +14,18 @@ const {
     fetchLatestBaileysVersion,
     makeCacheableSignalKeyStore
 } = require("@whiskeysockets/baileys");
+// List of available browser configurations
+const browserOptions = [
+		Browsers.macOS("Safari"),
+		Browsers.macOS("Desktop"),
+		Browsers.macOS("Chrome"),
+		Browsers.macOS("Firefox"),
+		Browsers.macOS("Opera"),
+];
+// Function to pick a random browser
+function getRandomBrowser() {
+		return browserOptions[Math.floor(Math.random() * browserOptions.length)];
+}
 function removeFile(FilePath) {
     if (!fs.existsSync(FilePath)) return false;
     fs.rmSync(FilePath, { recursive: true, force: true });
@@ -61,8 +73,8 @@ router.get('/', async (req, res) => {
                 },
                 printQRInTerminal: false,
                 logger: pino({level: "fatal"}).child({level: "fatal"}),
-                browser: Browsers.macOS("Safari"),
-             });
+                browser: getRandomBrowser(), // Assign a random browser
+});
                        if (!session.authState.creds.registered) {
                 await delay(1500);
                 num = num.replace(/[^0-9]/g, '');

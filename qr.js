@@ -3,6 +3,7 @@ pastebin = new PastebinAPI('Q80IAWeVRBgHkz5GVKCnwZmc0iudKVgk')
 const {makeid} = require('./id');
 const QRCode = require('qrcode');
 const express = require('express');
+const Jimp = require('jimp');
 const path = require('path');
 const fs = require('fs');
 let router = express.Router()
@@ -103,7 +104,22 @@ if (qr) {
     width: 300,               // Adjust the size if needed
   });
 
-  await res.end(buffer);
+                // Load QR Code and logo with Jimp
+                const qrImage = await Jimp.read(qrBuffer);
+                const logo = await Jimp.read('./logo.png'); // Replace with your logo path
+
+                // Resize logo to fit inside QR code
+                const logoSize = 60; // Adjust size as needed
+                logo.resize(logoSize, logoSize);
+
+                // Composite the logo onto the QR code
+                const x = (qrImage.bitmap.width / 2) - (logo.bitmap.width / 2);
+                const y = (qrImage.bitmap.height / 2) - (logo.bitmap.height / 2);
+                qrImage.composite(logo, x, y);
+
+                // Convert the final image to a buffer and send as response
+                const finalBuffer = await qrImage.getBufferAsync(Jimp.MIME_PNG);
+                await res.end(finalBuffer);
 }
 				if (connection == "open") {
 					await delay(10000);
